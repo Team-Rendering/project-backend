@@ -22,3 +22,4 @@ const postSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Example', postSchema)
+// we need to change this example to our name maybe?
