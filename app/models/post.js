@@ -21,5 +21,5 @@ const postSchema = new mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Example', postSchema)
+module.exports = mongoose.model('Post', postSchema)
 // we need to change this example to our name maybe?
