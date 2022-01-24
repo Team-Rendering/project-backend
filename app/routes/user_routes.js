@@ -137,5 +137,15 @@ router.delete('/sign-out', requireToken, (req, res, next) => {
     .then(() => res.sendStatus(204))
     .catch(next)
 })
+// INDEX
+// GET /users
+router.get('/users', (req, res, next) => {
+  User.find()
+    // .then(users => res.json({ users: users }))
+    // short hand sunce the key and value are both users
+    .then(users => res.json({ users }))
+    // error middleware
+    .catch(next)
+})
 
 module.exports = router
