@@ -36,6 +36,21 @@ router.get('/posts', (req, res, next) => {
     // if an error occurs, pass it to the handler
     .catch(next)
 })
+// INDEX One USERS POSTS
+// GET /destinations practice
+router.get('/posts/owner', requireToken, (req, res, next) => {
+  Post.find({ owner: req.user._id })// we added for users to only see what they created
+    .then(posts => {
+      // `Posts` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
+      return posts.map(post => post.toObject())
+    })
+    // respond with status 200 and JSON of the tasks
+    .then(posts => res.status(200).json({ posts: posts }))
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
 // SHOW
 // GET /destinations/5a7db6c74d55bc51bdf39793
 router.get('/posts/:id', requireToken, (req, res, next) => {
@@ -53,7 +68,7 @@ router.get('/posts/:id', requireToken, (req, res, next) => {
 router.post('/posts', requireToken, (req, res, next) => {
   // set owner of new destination to be current user
   req.body.post.owner = req.user.id
-
+  console.log(req.user.id)
   Post.create(req.body.post)
     // respond to succesful `create` with status 201 and JSON of new "destination"
     .then((post) => {
