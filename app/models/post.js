@@ -9,8 +9,9 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  photo: {
-    type: String
+  feelings: {
+    type: Number,
+    enum: [1, 2, 3, 4, 5],
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
