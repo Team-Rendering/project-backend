@@ -1,4 +1,4 @@
-[![Team Rendering](images/OurSpaceLogo.jpeg)]() 
+[![Team Rendering](images/OurSpaceLogo.jpeg)](https://team-rendering.github.io/project-frontend/) 
 # Team Renderings Social Network
 ---
 ## The BackStory
